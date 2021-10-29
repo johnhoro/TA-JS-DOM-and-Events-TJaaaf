@@ -2,38 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>To Do List</title>
+    <link rel="stylesheet" href="../code/style.css" />
+    <title>Todo App</title>
   </head>
   <body>
-    <section class="todoapp container">
-      <header>
-        <h1>My To do list</h1>
-        <input
-          class="list-input"
-          type="text"
-          placeholder="What needs to be done?"
-        />
-      </header>
-      <main>
-        <ul class="todolist"></ul>
-      </main>
+    <div class="container">
+      <input type="text" id="text" name="todo" placeholder="Enter your todo!" />
+      <ul class="todos">
+        <!-- <li>
+          <input type="checkbox" name="" />
+          <label>Learn about DOM</label>
+          <span>X</span>
+        </li>
+        <li>
+          <input type="checkbox" name="" />
+          <label>Learn about DOM</label>
+          <span>X</span>
+        </li>
+        <li>
+          <input type="checkbox" name="" />
+          <label>Learn about DOM<label>
+          <span>X</span>
+        </li>    -->
+      </ul>
       <footer>
-        <ul class="filters">
-          <li>
-            <a href="#/" data-tag="all" class="selected">All</a>
-          </li>
-          <li>
-            <a data-tag="active" href="#/active">Active</a>
-          </li>
-          <li>
-            <a data-tag="completed" href="#/completed">Completed</a>
-          </li>
-          <button class="clear-completed">Clear completed</button>
-        </ul>
+        <button class="all">All</button>
+        <button class="active">Active</button>
+        <button class="completed">Completed</button>
+        <button class="clear">Clear Completed</button>
       </footer>
-    </section>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
