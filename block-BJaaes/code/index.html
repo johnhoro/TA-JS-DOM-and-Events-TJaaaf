@@ -7,89 +7,75 @@
     <title>Form Validation 👇</title>
   </head>
   <body>
-    <form class="container">
-      <div class="form-control">
-        <label for="name">Your Name:</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-        />
-      </div>
-      <div class="form-control">
-        <label for="email">Your Email:</label>
-        <input
-          id="email"
-          type="text"
-          name="email"
-          placeholder="Enter your email"
-        />
-      </div>
-      <div class="form-control">
-        <label for="movies">What do you love?</label>
-        <select id="gender" name="gender">
-          <option value="movies">Movies</option>
-          <option value="series">Series</option>
-          <option value="others">Others</option>
-        </select>
-      </div>
-      <div class="form-control">
-        <label for="color">Choose a color</label>
-        <input
-          id="color"
-          type="color"
-          name="color"
-          placeholder="Enter your email"
-        />
-      </div>
-      <div class="form-control">
-        <label for="range"> Rate the movie Inception out of 10 </label>
-        <input
-          id="range"
-          type="range"
-          max="10"
-          step="1"
-          name="range"
-          placeholder="Enter your email"
-        />
-      </div>
-      <div class="form-control">
-        <label>Book genre you love?</label>
-
-        <div>
+    <div class="container">
+      <header>
+        <h1>Create Account</h1>
+      </header>
+      <form>
+        <div class="form-control">
+          <label for="username">Username</label>
           <input
-            type="radio"
-            id="fiction"
-            name="drone"
-            value="fiction"
-            checked
+            type="text"
+            id="username"
+            name="username"
+            placeholder="enter your name"
           />
-          <label for="fiction">Fiction</label>
+          <small></small>
         </div>
-
-        <div>
+        <div class="form-control">
+          <label for="username">Name</label>
           <input
-            type="radio"
-            id="non-fiction"
-            name="drone"
-            value="non-fiction"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="enter your name"
           />
-          <label for="non-fiction">Non Fiction</label>
+          <small></small>
         </div>
-
-        <div>
-          <input type="radio" id="adventure" name="drone" value="adventure" />
-          <label for="adventure">Adventure</label>
+        <div class="form-control">
+          <label for="username">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="ijohnhoro@gmail.com"
+          />
+          <small></small>
         </div>
-      </div>
-      <div class="form-control terms">
-        <input type="checkbox" id="terms" name="terms" />
-        <label for="terms">I Agree to Terms</label>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-
+        <div class="form-control error">
+          <label for="username">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your password"
+          />
+          <small></small>
+        </div>
+        <div class="form-control">
+          <label for="username">Password</label>
+          <input
+            type="password"
+            id="pass"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <small></small>
+        </div>
+        <div class="form-control success">
+          <label for="username">Confirm Password</label>
+          <input
+            type="password"
+            id="pass-check"
+            name="passwordCheck"
+            placeholder="Enter your password"
+          />
+          <small></small>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>

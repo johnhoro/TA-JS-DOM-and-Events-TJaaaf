@@ -1,51 +1,80 @@
 let form = document.querySelector("form");
-let modal = document.querySelector(".modal_overlay");
-let modalInfo = document.querySelector(".modal_info");
 
-let userData = {};
+let userInfo = {};
+let errorMessage = {};
 
-form.addEventListener(`submit`, (event) => {
+function displayError(name) {
+  form.elements[name].nextElementSibling.innerText = errorMessage[name];
+  form.elements[name].parentElement.classList.add("error");
+}
+function displaySuccess(name) {
+  let elm = form.elements[name];
+  elm.nextElementSibling.innerText = "";
+  errorMessage[name] = "";
+  elm.parentElement.classList.remove("error");
+  elm.parentElement.classList.add("success");
+}
+
+function handleSubmit(event) {
   event.preventDefault();
   let elements = event.target.elements;
+  const username = elements.username.value;
+  const name = elements.name.value;
+  const email = elements.email.value;
+  const phone = elements.phone.value;
+  const password = elements.password.value;
+  const passwordCheck = elements.passwordCheck.value;
 
-  userData.name = elements.name.value;
-  userData.email = elements.email.value;
-  userData.gender = elements.gender.value;
-  userData.color = elements.color.value;
-  userData.range = elements.range.value;
-  userData.drone = elements.drone.value;
-  userData.terms = elements.terms.checked;
+  // 1. Username can't be less than 4 characters
 
-  modal.classList.add("open");
+  if (username.length < 4) {
+    errorMessage.username = "username can't be less than 4 ";
+    displayError("username");
+  } else {
+    displaySuccess("username");
+  }
 
-  let close = document.querySelector(".modal_close");
-  close.addEventListener("click", () => {
-    modal.classList.remove("open");
-  });
+  // 2. Name can't be numbers
+  if (!isNaN(name)) {
+    errorMessage.name = "Name can't be number";
+    displayError("name");
+  } else {
+    displaySuccess("name");
+  }
 
-  displayInfo(userData);
-});
+  // 3. Email must contain the symbol `@`
+  // 4. Email must be at least 6 characters
 
-function displayInfo(data = {}) {
-  modalInfo.innerHTML = "";
-  let h1 = document.createElement("h1");
-  h1.innerText = `Hello ${data.name}`;
-  let email = document.createElement("p");
-  email.innerText = `Email: ${data.email}`;
-  let gender = document.createElement("p");
-  gender.innerText = `Watching Choice: ${data.gender}`;
-  let color = document.createElement("p");
-  color.innerText = `Color: ${data.color}`;
-  let range = document.createElement("p");
-  range.innerText = `Rating for movie: ${data.range}`;
-  let drone = document.createElement("p");
-  drone.innerText = `Hello ${data.drone}`;
-  let terms = document.createElement("p");
-  terms.innerText = `👉: ${
-    data.terms
-      ? "You have accepted the terms and condition"
-      : "You have not accepted the terms and condition"
-  }`;
+  if (!email.includes("@")) {
+    errorMessage.email = "Email must be at least 6 characters";
+    displayError("email");
+  } else {
+    displaySuccess("email");
+  }
 
-  modalInfo.append(h1, email, gender, color, range, drone, terms);
+  // 5. Phone numbers can only be a number
+  // 6. Length of phone number can't be less than 7
+  if (!isNaN(phone)) {
+    errorMessage.phone = "Phone numbers can only be a number";
+    displayError("phone");
+  } else if (phone.length < 7) {
+    errorMessage.phone = "Length of phone number can't be less than 7";
+    displayError("phone");
+  } else {
+    displaySuccess("phone");
+  }
+
+  // 8. Password and confirm password must be same.
+  if (password !== passwordCheck) {
+    errorMessage.password = "Password and confirm password must be same";
+    displayError("password");
+    displayError("passwordCheck");
+  } else {
+    displaySuccess("password");
+    displaySuccess("passwordCheck");
+  }
+
+  console.log({ username, name, email, phone, password, passwordCheck });
 }
+
+form.addEventListener("submit", handleSubmit);
