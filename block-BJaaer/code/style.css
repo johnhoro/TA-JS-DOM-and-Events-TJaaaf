@@ -92,7 +92,7 @@ input[type="text"] {
   display: inline-block;
 }
 .modal_overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 4rem auto;
   display: none;
 }
