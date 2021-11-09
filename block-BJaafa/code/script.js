@@ -2,7 +2,9 @@ function main() {
   let rootElm = document.querySelector("main");
   let activityInput = document.querySelector("form");
 
-  let allTodos = [];
+  let allTodos = localStorage.getItem("allTodos")
+    ? JSON.parse(localStorage.getItem("allTodos"))
+    : [];
 
   function addActivity(event) {
     event.preventDefault();
@@ -17,11 +19,14 @@ function main() {
     });
     event.target.value = "";
     createUI();
+    localStorage.setItem("allTodos", JSON.stringify(allTodos));
   }
+
   function handleDelete(event) {
     let id = event.target.dataset.id;
     allTodos.splice(id, 1);
     createUI();
+    localStorage.setItem("allTodos", JSON.stringify(allTodos));
   }
 
   function handleDate(event) {
@@ -41,6 +46,7 @@ function main() {
     }
 
     createUI();
+    localStorage.setItem("allTodos", JSON.stringify(allTodos));
     //   allTodos.dateSelected.push(event.target.innerText);
   }
 
