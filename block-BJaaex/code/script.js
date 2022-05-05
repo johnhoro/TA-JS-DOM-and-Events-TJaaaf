@@ -94,11 +94,8 @@ function main() {
   timer.innerText = 0;
 
   let timerStart = true;
-
   let match = [];
-
   let matchedCard = [];
-
   let timerID;
 
   let shuffleButton = document.querySelector(".reset");
@@ -180,13 +177,9 @@ function main() {
 
     if (id) {
       let isSelected = event.target.dataset.isselected;
-
       if (isSelected === "true") return;
-
       let value = event.target.dataset;
-
       allArray[id].flip = !allArray[id].flip;
-
       match.push(value);
       createCards();
       getMatch();
