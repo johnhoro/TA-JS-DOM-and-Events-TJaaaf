@@ -3,33 +3,39 @@ function getRandomNumber(max) {
 }
 
 function generateRandomColor() {
-  let hexCharacters = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-  ];
-
-  let color = "#";
-
-  for (let i = 0; i < 6; i++) {
-    let randomNumber = getRandomNumber(16);
-    color = color + hexCharacters[randomNumber];
-  }
+  let randomColor = Math.floor(Math.random() * 16777216).toString(16);
+  let color = "#" + randomColor;
   return color;
 }
+
+// function generateRandomColor() {
+//   let hexCharacters = [
+//     "0",
+//     "1",
+//     "2",
+//     "3",
+//     "4",
+//     "5",
+//     "6",
+//     "7",
+//     "8",
+//     "9",
+//     "a",
+//     "b",
+//     "c",
+//     "d",
+//     "e",
+//     "f",
+//   ];
+
+//   let color = "#";
+
+//   for (let i = 0; i < 6; i++) {
+//     let randomNumber = getRandomNumber(16);
+//     color = color + hexCharacters[randomNumber];
+//   }
+//   return color;
+// }
 let parentBox = document.querySelector(".boxes");
 
 for (let i = 0; i < 500; i++) {
